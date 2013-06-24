@@ -109,4 +109,16 @@ public class EspetaculosControllerTest {
 
 		assertThat(sessao.getIngressosDisponiveis(), is(2));
 	}
+	
+	@Test
+	public void deveReservarTodosOsIngressos() {
+		Sessao sessao = new Sessao();
+		sessao.setTotalIngressos(5);
+		
+		when(agenda.sessao(1234l)).thenReturn(sessao);
+
+		controller.reserva(1234l, 5);
+		
+		assertThat(sessao.getIngressosDisponiveis(), is(0));
+	}
 }
