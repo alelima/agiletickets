@@ -120,13 +120,12 @@ public class EspetaculoTest {
 		LocalDate dataFim = new LocalDate(2013, 7, 7);
 		LocalDate dataMeio = new LocalDate(2013, 7, 4);
 		LocalTime horario = new LocalTime(18, 0, 0);
-		LocalTime test;
 		
 		List<Sessao> resultado = espetaculo.criaSessoes(dataInicio, dataFim, horario, Periodicidade.DIARIA);
 		
 		assertTrue(resultado.size() == 7);
 		assertEquals(dataInicio.toString(DateTimeFormat.shortDate().withLocale(new Locale("pt", "BR"))),resultado.get(0).getDia());
-		assertEquals(dataMeio.toString(DateTimeFormat.shortDate().withLocale(new Locale("pt", "BR"))),resultado.get(4).getDia());
+		assertEquals(dataMeio.toString(DateTimeFormat.shortDate().withLocale(new Locale("pt", "BR"))),resultado.get(3).getDia());
 		assertEquals(dataFim.toString(DateTimeFormat.shortDate().withLocale(new Locale("pt", "BR"))),resultado.get(6).getDia());
 	
 	}
